@@ -8,7 +8,7 @@ public class cadastro {
 	
 	Consumo consumo = new Consumo();
 	
-	Gasto gasto = new Gasto();
+	Gasto gasto = new Gasto(); //teste
 	
 	private String nome, sexo;
 	private int idade, op = 0, altura;
