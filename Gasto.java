@@ -38,6 +38,7 @@ public class Gasto{
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
 				kcalGasto += kcalExerc*tempo;
+				System.out.println("Você gastou" + kcalGasto + " Kcal! Continue assim!");
 				break;
 				
 			case 2:
@@ -45,6 +46,7 @@ public class Gasto{
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
 				kcalGasto += kcalExerc*tempo;
+				System.out.println("Você gastou" + kcalGasto + " Kcal! Continue assim!");
 				break;
 				
 			case 3:
@@ -52,6 +54,7 @@ public class Gasto{
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
 				kcalGasto += kcalExerc*tempo;
+				System.out.println("Você gastou" + kcalGasto + " Kcal! Continue assim!");
 				break;
 				
 			case 4:
@@ -59,6 +62,7 @@ public class Gasto{
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
 				kcalGasto += kcalExerc*tempo;
+				System.out.println("Você gastou" + kcalGasto + " Kcal! Continue assim!");
 				break;
 				
 			case 5:
@@ -66,6 +70,7 @@ public class Gasto{
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
 				kcalGasto += kcalExerc*tempo;
+				System.out.println("Você gastou" + kcalGasto + " Kcal! Continue assim!");
 				break;
 				
 			case 6:
