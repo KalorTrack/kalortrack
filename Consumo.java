@@ -1,121 +1,135 @@
 package ProjetoG2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Consumo {
 
-    Scanner leia = new Scanner(System.in);
+	Scanner leia = new Scanner(System.in);
 
-    // atributo
-    private double kcalConsumoDia;
+	// atributo
+	private double kcalConsumoDia;
 
-    // metodo construtor
-    public Consumo() {
+	// metodo construtor
+	public Consumo() {
 
-    }
+	}
 
-    // variável
-    int opcAli, unidade;
-    double kcalAli;
+	// variável
+	int opcAli, unidade;
+	double kcalAli;
+	boolean continueLoop = true;
 
-    // método simples
-    public void listaAlimentos() {
+	// método simples
+	public void listaAlimentos() {
 
-        do {
-            System.out.println("\n\t\tESCOLHA SEU ALIMENTO");
-            System.out.println("\n1-Arroz");
-            System.out.println("2-Feijão");
-            System.out.println("3-Frango");
-            System.out.println("4-Macarronada");
-            System.out.println("5-Pão");
-            System.out.println("6-Volta");
-            
-            opcAli = leia.nextInt();
-            switch (opcAli) {
-            case 1:
-                kcalAli = 100;
-                System.out.println("\nQuantas escumadeiras de arroz você comeu?");
-                unidade = leia.nextInt();
-                kcalConsumoDia += kcalAli * unidade;
-                break;
+		do {
+			do {
+				continueLoop = true;
+				try {
 
-            case 2:
-                kcalAli = 50;
-                System.out.println("\nQuantas conchas de feijão você comeu?");
-                unidade = leia.nextInt();
-                kcalConsumoDia += kcalAli * unidade;
-                break;
+					System.out.println("\n\t\tESCOLHA SEU ALIMENTO");
+					System.out.println("\n1-Arroz");
+					System.out.println("2-Feijão");
+					System.out.println("3-Frango");
+					System.out.println("4-Macarronada");
+					System.out.println("5-Pão");
+					System.out.println("6-Volta");
 
-            case 3:
-                kcalAli = 150;
-                System.out.println("\nQuantos filés de frango você comeu?");
-                unidade = leia.nextInt();
-                kcalConsumoDia += kcalAli * unidade;
-                break;
+					opcAli = leia.nextInt();
+					continueLoop = false;
 
-            case 4:
-                kcalAli = 200;
-                System.out.println("\nQuantas escumadeiras de macarronada você comeu?");
-                unidade = leia.nextInt();
-                kcalConsumoDia += kcalAli * unidade;
-                break;
+				} catch (InputMismatchException ex) {
+					System.err.println("Opção inválida, entre com um valor válido");
+					leia.nextLine();
+				}
+			} while (continueLoop);
 
-            case 5:
-                kcalAli = 70;
-                System.out.println("\nQuantos pães você comeu?");
-                unidade = leia.nextInt();
-                kcalConsumoDia += kcalAli * unidade;
-                break;
+			switch (opcAli) {
+			case 1:
+				kcalAli = 111;
+				System.out.println("\nQuantas escumadeiras de arroz você comeu?");
+				unidade = leia.nextInt();
+				kcalConsumoDia += kcalAli * unidade;
+				break;
 
-            case 6:
-                break;
+			case 2:
+				kcalAli = 99;
+				System.out.println("\nQuantas conchas de feijão você comeu?");
+				unidade = leia.nextInt();
+				kcalConsumoDia += kcalAli * unidade;
+				break;
 
-            default:
-                System.out.println("\nOpção inválida! Por favor selecione outra opção:");
-                break;
-            }
-        } while (opcAli != 6);
-    }
+			case 3:
+				kcalAli = 165;
+				System.out.println("\nQuantos filés de frango você comeu?");
+				unidade = leia.nextInt();
+				kcalConsumoDia += kcalAli * unidade;
+				break;
 
-    // Getter & Setter
-    public double getKcalConsumoDia() {
-        return kcalConsumoDia;
-    }
+			case 4:
+				kcalAli = 126;
+				System.out.println("\nQuantas escumadeiras de macarronada você comeu?");
+				unidade = leia.nextInt();
+				kcalConsumoDia += kcalAli * unidade;
+				break;
 
-    public void setKcalConsumoDia(double kcalConsumoDia) {
-        this.kcalConsumoDia = kcalConsumoDia;
-    }
+			case 5:
+				kcalAli = 149;
+				System.out.println("\nQuantos pães você comeu?");
+				unidade = leia.nextInt();
+				kcalConsumoDia += kcalAli * unidade;
+				break;
 
-    public Scanner getLeia() {
-        return leia;
-    }
+			case 6:
+				break;
 
-    public void setLeia(Scanner leia) {
-        this.leia = leia;
-    }
+			default:
+				System.err.println("Opção inválida, entre com um valor válido");
+				break;
+			}
+		} while (opcAli != 6);
+	}
 
-    public int getOpcAli() {
-        return opcAli;
-    }
+	// Getter & Setter
+	public double getKcalConsumoDia() {
+		return kcalConsumoDia;
+	}
 
-    public void setOpcAli(int opcAli) {
-        this.opcAli = opcAli;
-    }
+	public void setKcalConsumoDia(double kcalConsumoDia) {
+		this.kcalConsumoDia = kcalConsumoDia;
+	}
 
-    public int getUnidade() {
-        return unidade;
-    }
+	public Scanner getLeia() {
+		return leia;
+	}
 
-    public void setUnidade(int unidade) {
-        this.unidade = unidade;
-    }
+	public void setLeia(Scanner leia) {
+		this.leia = leia;
+	}
 
-    public double getKcalAli() {
-        return kcalAli;
-    }
+	public int getOpcAli() {
+		return opcAli;
+	}
 
-    public void setKcalAli(double kcalAli) {
-        this.kcalAli = kcalAli;
-    }
-    // teste
+	public void setOpcAli(int opcAli) {
+		this.opcAli = opcAli;
+	}
+
+	public int getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(int unidade) {
+		this.unidade = unidade;
+	}
+
+	public double getKcalAli() {
+		return kcalAli;
+	}
+
+	public void setKcalAli(double kcalAli) {
+		this.kcalAli = kcalAli;
+	}
+	// teste
 }

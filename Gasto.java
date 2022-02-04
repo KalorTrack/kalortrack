@@ -1,128 +1,138 @@
 package ProjetoG2;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Gasto{
-    
-    Scanner leia = new Scanner(System.in);
+public class Gasto {
 
-    //atributo
-    private double kcalGastoDia;
-     
-    //metodo construtor
-    public Gasto () {
-    
-     }
+	public Gasto() {
+	}
 
+	Scanner leia = new Scanner(System.in);
 
-    //variável
-    int opcExerc, tempo;
-    double kcalExerc;
-    
-    //método simples
-    public void listaExercícios() {
-        System.out.println("\n\t\tESCOLHA SEU EXERCÍCIO");
-        System.out.println("\n1-Caminhada");
-        System.out.println("2-Corrida");
-        System.out.println("3-Bicicleta");
-        System.out.println("4-Musculação");
-        System.out.println("5-Alongamento");
-        System.out.println("6-Volta");
-        
-        do {
-            opcExerc = leia.nextInt();
-            switch (opcExerc) {
-            case 1:
-                kcalExerc = 10;
-                System.out.println("\nPor quantos minutos você praticou esse exercício?");
-                tempo = leia.nextInt();
-                kcalGastoDia += kcalExerc * tempo;
-                System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
-                break;
+	// atributo
+	private double kcalGastoDia;
 
-            case 2:
-                kcalExerc = 5;
-                System.out.println("\nPor quantos minutos você praticou esse exercício?");
-                tempo = leia.nextInt();
-                kcalGastoDia += kcalExerc * tempo;
-                System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
-                break;
+	// variável
+	int opcExerc, tempo;
+	double kcalExerc;
+	boolean continueLoop = true;
 
-            case 3:
-                kcalExerc = 15;
-                System.out.println("\nPor quantos minutos você praticou esse exercício?");
-                tempo = leia.nextInt();
-                kcalGastoDia += kcalExerc * tempo;
-                System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
-                break;
+	// método simples
+	public void listaExercícios() {
+		do {
+			continueLoop = true;
+			try {
 
-            case 4:
-                kcalExerc = 20;
-                System.out.println("\nPor quantos minutos você praticou esse exercício?");
-                tempo = leia.nextInt();
-                kcalGastoDia += kcalExerc * tempo;
-                System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
-                break;
+				System.out.println("\n\t\tESCOLHA SEU EXERCÍCIO");
+				System.out.println("\n1-Caminhada");
+				System.out.println("2-Corrida");
+				System.out.println("3-Bicicleta");
+				System.out.println("4-Musculação");
+				System.out.println("5-Alongamento");
+				System.out.println("6-Volta");
 
-            case 5:
-                kcalExerc = 7;
-                System.out.println("\nPor quantos minutos você praticou esse exercício?");
-                tempo = leia.nextInt();
-                kcalGastoDia += kcalExerc * tempo;
-                System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
-                break;
+				opcExerc = leia.nextInt();
+				continueLoop = false;
 
-            case 6:
-                break;
+			} catch (InputMismatchException ex) {
+				System.err.println("Opção inválida, entre com um valor válido");
+				leia.nextLine();
+			}
+		} while (continueLoop);
 
-            default:
-                System.out.println("\nOpção inválida! Por favor selecione outra opção:");
-                break;
-            }
-        } while (opcExerc > 6 || opcExerc < 0);
-    }
+		do {
+			switch (opcExerc) {
+			case 1:
+				System.out.println("\nPor quantos minutos você praticou esse exercício?");
+				tempo = leia.nextInt();
+				kcalExerc = 3.3 * /* getPeso() */tempo;
+				kcalGastoDia += kcalExerc;
+				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				break;
 
-    public Scanner getLeia() {
-        return leia;
-    }
+			case 2:
+				System.out.println("\nPor quantos minutos você praticou esse exercício?");
+				tempo = leia.nextInt();
+				kcalExerc = 8 * /* getPeso() */tempo;
+				kcalGastoDia += kcalExerc;
+				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				break;
 
-    public void setLeia(Scanner leia) {
-        this.leia = leia;
-    }
+			case 3:
+				System.out.println("\nPor quantos minutos você praticou esse exercício?");
+				tempo = leia.nextInt();
+				kcalExerc = 8 * /* getPeso() */tempo;
+				kcalGastoDia += kcalExerc;
+				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				break;
 
-    public double getKcalGastoDia() {
-        return kcalGastoDia;
-    }
+			case 4:
+				System.out.println("\nPor quantos minutos você praticou esse exercício?");
+				tempo = leia.nextInt();
+				kcalExerc = 5.5 * /* getPeso() */tempo;
+				kcalGastoDia += kcalExerc;
+				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				break;
 
-    public void setKcalGastoDia(double kcalGastoDia) {
-        this.kcalGastoDia = kcalGastoDia;
-    }
+			case 5:
+				System.out.println("\nPor quantos minutos você praticou esse exercício?");
+				tempo = leia.nextInt();
+				kcalExerc = 2.5 * /* getPeso() */tempo;
+				kcalGastoDia += kcalExerc;
+				;
+				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				break;
 
-    public int getOpcExerc() {
-        return opcExerc;
-    }
+			case 6:
+				break;
 
-    public void setOpcExerc(int opcExerc) {
-        this.opcExerc = opcExerc;
-    }
+			default:
+				System.err.println("Opção inválida, entre com um valor válido");
+				break;
+			}
+		} while (opcExerc > 6 || opcExerc < 0);
+	}
 
-    public int getTempo() {
-        return tempo;
-    }
+	// Getter & Setter
+	public Scanner getLeia() {
+		return leia;
+	}
 
-    public void setTempo(int tempo) {
-        this.tempo = tempo;
-    }
+	public void setLeia(Scanner leia) {
+		this.leia = leia;
+	}
 
-    public double getKcalExerc() {
-        return kcalExerc;
-    }
+	public double getKcalGastoDia() {
+		return kcalGastoDia;
+	}
 
-    public void setKcalExerc(double kcalExerc) {
-        this.kcalExerc = kcalExerc;
-    }
-    
-    //Getter & Setter
-    
-     
+	public void setKcalGastoDia(double kcalGastoDia) {
+		this.kcalGastoDia = kcalGastoDia;
+	}
+
+	public int getOpcExerc() {
+		return opcExerc;
+	}
+
+	public void setOpcExerc(int opcExerc) {
+		this.opcExerc = opcExerc;
+	}
+
+	public int getTempo() {
+		return tempo;
+	}
+
+	public void setTempo(int tempo) {
+		this.tempo = tempo;
+	}
+
+	public double getKcalExerc() {
+		return kcalExerc;
+	}
+
+	public void setKcalExerc(double kcalExerc) {
+		this.kcalExerc = kcalExerc;
+	}
+
 }
