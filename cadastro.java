@@ -14,13 +14,13 @@ public class cadastro {
 	Gasto gasto = new Gasto();
 
 	private String nome, sexo;
-	private int idade, op = 0, altura;
-	private double imc = 0, tmb = 0;
+	private int  idade, op = 0, altura;
+	private double peso, imc = 0, tmb = 0;
 	private List<Double> historicoCons = new ArrayList<Double>();
 	private List<Double> historicoGast = new ArrayList<Double>();
-	protected double peso;
 
-	public cadastro(String nome, String sexo, int idade, int op, int altura, double peso) {
+
+	public cadastro(String nome, String sexo, int idade, int op, int altura, double peso, double imc, double tmb) {
 
 		super();
 		this.nome = nome;
@@ -140,10 +140,12 @@ public class cadastro {
 				continueLoop = true;
 				try {
 
-					System.out.println("\t\tSelecione uma opção");
+					System.out.println("\tSELECIONE UMA OPÇÃO\n");
 					System.out.println("1 - Inserir novos dados");
 					System.out.println("2 - Já tenho cadastro");
+					System.out.print("=>:");
 					opLiga = leia.nextInt();
+					System.out.println();
 					continueLoop = false;
 
 				} catch (InputMismatchException ex) {
@@ -156,14 +158,14 @@ public class cadastro {
 
 			case 1: // CADASTRO/NOVOS DADOS
 
-				System.out.println("Olá! Insira seus dados abaixo.");
-				System.out.println("\nNome:");
+				System.out.println("\n\tOlá! Insira seus dados abaixo.");
+				System.out.print("\nNome:");
 				nome = leia.next();
 				do {
 					continueLoop = true;
 					try {
 
-						System.out.println("\nIdade:");
+						System.out.print("\nIdade:");
 						idade = leia.nextInt();
 						continueLoop = false;
 
@@ -176,7 +178,7 @@ public class cadastro {
 				do {
 					continueLoop = true;
 					try {
-						System.out.println("\nSexo (F ou M):");
+						System.out.print("\nSexo (F ou M):");
 						sexo = leia.next();
 						sexo = sexo.toUpperCase();
 						if (sexo.equals("M") || sexo.equals("F")) {
@@ -195,9 +197,13 @@ public class cadastro {
 					continueLoop = true;
 					try {
 
-						System.out.println("\nAltura em cm:");
+						System.out.print("\nAltura em cm:");
 						altura = leia.nextInt();
-						continueLoop = false;
+						if (altura > 0) {
+							continueLoop = false;
+						} else {
+							System.err.println("Opção inválida, entre com um valor válido");
+						}
 
 					} catch (InputMismatchException ex) {
 						System.err.println("Opção inválida, entre com um valor válido");
@@ -209,9 +215,13 @@ public class cadastro {
 					continueLoop = true;
 					try {
 
-						System.out.println("\nPeso:");
+						System.out.print("\nPeso:");
 						peso = leia.nextDouble();
-						continueLoop = false;
+						if (peso > 0) {
+							continueLoop = false;
+						} else {
+							System.err.println("Opção inválida, entre com um valor válido");
+						}
 
 					} catch (InputMismatchException ex) {
 						System.err.println("Opção inválida, entre com um valor válido");
@@ -230,11 +240,14 @@ public class cadastro {
 				}
 				historicoCons.clear();
 				historicoGast.clear();
+				consumo.setKcalConsumoDia(0.0);
+				gasto.setKcalGastoDia(0.0);
+				
 				break;
 
 			case 2:
-				
-				if(peso < 1 || altura < 1 || !sexo.equals("M")|| !sexo.equals("F")) {
+
+				if (peso < 1 || altura < 1 || (!sexo.equals("M") && !sexo.equals("F"))) {
 					System.err.println("Cadastro não contém as informações necessárias, favor refazê-lo!");
 					opLiga = 3;
 				}
@@ -257,13 +270,15 @@ public class cadastro {
 				continueLoop = true;
 				try {
 
-					System.out.println("\n\n\t\tSelecione uma opção");
+					System.out.println("\n\tSELECIONE UMA OPÇÃO\n");
 					System.out.println("1 - Iniciar um novo dia");
 					System.out.println("2 - Adicionar consumo");
 					System.out.println("3 - Adicionar gastos");
 					System.out.println("4 - Resumo diário");
 					System.out.println("5 - Histórico");
 					System.out.println("6 - Opções");
+					System.out.print("=>:");
+					
 					opApp = leia.nextInt();
 					continueLoop = false;
 
@@ -293,9 +308,8 @@ public class cadastro {
 							.println("Você iniciou um novo dia! Os dados de ontem " + "foram salvos no seu histórico!");
 
 				} else {
-					System.out.println("\t\tAinda não foram inseridos dados no dia de hoje!");
+					System.err.println("\t\tAinda não foram inseridos dados no dia de hoje!");
 				}
-
 				break;
 
 			case 2:
@@ -312,8 +326,8 @@ public class cadastro {
 
 			case 4: // MÉTODO DIÁRIO
 
-				System.out.println("Até o momento você já consumiu: " + consumo.getKcalConsumoDia() + "Kcals!");
-				System.out.println("Até o momento você já gastou: " + (gasto.getKcalGastoDia() + tmb) + "Kcals!");// Atvd
+				System.out.printf("Até o momento você já consumiu: %.2f Kcal!%n", consumo.getKcalConsumoDia());
+				System.out.printf("Até o momento você já gastou: %.2f Kcal!%n", (gasto.getKcalGastoDia() + tmb));// Atvd
 																													// vida
 																													// diaria
 
@@ -331,94 +345,101 @@ public class cadastro {
 
 			case 5: // MÉTODO HISTÓRICO
 				int op5 = 0;
-				do {
+				if (historicoCons.size() >= 1) {
 					do {
-						continueLoop = true;
-						try {
+						do {
+							continueLoop = true;
+							try {
 
-							System.out.println("\n\n\t\tSelecione uma opção");
-							System.out.println("1 - Média dos seus resumos");
-							System.out.println("2 - Média dos seus consumos");
-							System.out.println("3 - Média dos seus gastos");
-							System.out.println("4 - Voltar");
-							op5 = leia.nextInt();
-							continueLoop = false;
+								System.out.println("\n\n\tSELECIONE UMA OPÇÃO\n");
+								System.out.println("1 - Média dos seus resumos");
+								System.out.println("2 - Média dos seus consumos");
+								System.out.println("3 - Média dos seus gastos");
+								System.out.println("4 - Voltar");
+								System.out.print("=>:");
+								op5 = leia.nextInt();
+								continueLoop = false;
 
-						} catch (InputMismatchException ex) {
-							System.err.println("Opção inválida, entre com um valor válido");
-							leia.nextLine();
-						}
-					} while (continueLoop);
-
-					switch (op5) {
-					case 1:
-
-						double somaHisCons = 0;
-						double somaHisGast = 0;
-
-						for (int i = 0; i < historicoCons.size(); i++) {
-
-							somaHisCons += historicoCons.get(i);
-						}
-
-						for (int i = 0; i < historicoGast.size(); i++) {
-
-							somaHisGast += historicoGast.get(i);
-						}
-
-						double mediaHis = (somaHisCons - somaHisGast) / historicoCons.size();
-
-						System.out.print("Nos últimos " + historicoCons.size() + " você ficou em ");
-
-						if (mediaHis > 75) {
-							System.out.print("um superávit em média de " + mediaHis + "Kcals por dia!"
-									+ "\nIsso indica um ganho de peso!");
-						} else if (mediaHis < 75) {
-							System.out.print("um déficit em média de " + (mediaHis * -1) + "Kcals por dia!"
-									+ "\nIsso indica uma perda de peso!");
-						} else {
-
-							if (mediaHis < 0) {
-								mediaHis = mediaHis * -1;
+							} catch (InputMismatchException ex) {
+								System.err.println("Opção inválida, entre com um valor válido");
+								leia.nextLine();
 							}
-							System.out.print("uma média de " + mediaHis + "Kcals por dia!"
-									+ "\nEsse baixo valor indica manutenção de peso!");
+						} while (continueLoop);
+
+						switch (op5) {
+						case 1:
+
+							double somaHisCons = 0;
+							double somaHisGast = 0;
+
+							for (int i = 0; i < historicoCons.size(); i++) {
+
+								somaHisCons += historicoCons.get(i);
+							}
+
+							for (int i = 0; i < historicoGast.size(); i++) {
+
+								somaHisGast += historicoGast.get(i);
+							}
+
+							double mediaHis = (somaHisCons - somaHisGast) / historicoCons.size();
+
+							System.out.print("Nos últimos " + historicoCons.size() + " dias você ficou em ");
+
+							if (mediaHis > 75) {
+								System.out.printf("um superávit em média de %.2f Kcal por dia!"
+										, mediaHis, "%nIsso indica um ganho de peso!%n");
+							} else if (mediaHis < 75) {
+								System.out.printf("um déficit em média de %.2f Kcal por dia!"
+										, (mediaHis * -1), "%nIsso indica uma perda de peso!%n");
+							} else {
+
+								if (mediaHis < 0) {
+									mediaHis = mediaHis * -1;
+								}
+								System.out.printf("uma média de %.2f Kcals por dia!"
+										, mediaHis, "%nEsse baixo valor indica manutenção de peso!%n");
+							}
+
+							break;
+						case 2:
+							double somaConsumo = 0;
+
+							for (int i = 0; i < historicoCons.size(); i++) {
+
+								somaConsumo += historicoCons.get(i);
+							}
+
+							System.out.println("Nos últimos " + historicoCons.size() + " dias, você consumiu em média "
+									+ (somaConsumo / historicoCons.size()) + "Kcals!");
+
+							break;
+						case 3:
+
+							double somaGasto = 0;
+
+							for (int i = 0; i < historicoGast.size(); i++) {
+
+								somaGasto += historicoGast.get(i);
+							}
+
+							System.out.println("Nos últimos " + historicoGast.size() + " dias, você gastou em média "
+									+ (somaGasto / historicoGast.size()) + "Kcals!");
+							break;
+
+						case 4:
+							break;
+						default:
+							System.err.println("Opção inválida, entre com um valor válido");
+							break;
 						}
 
-						break;
-					case 2:
-						double somaConsumo = 0;
+					} while (op5 > 4 || op5 < 1);
 
-						for (int i = 0; i < historicoCons.size(); i++) {
-
-							somaConsumo += historicoCons.get(i);
-						}
-
-						System.out.println("Nos últimos " + historicoCons.size() + " dias, você consumiu em média "
-								+ (somaConsumo / historicoCons.size()) + "Kcals!");
-
-						break;
-					case 3:
-
-						double somaGasto = 0;
-
-						for (int i = 0; i < historicoGast.size(); i++) {
-
-							somaGasto += historicoGast.get(i);
-						}
-
-						System.out.println("Nos últimos " + historicoGast.size() + " dias, você gastou em média "
-								+ (somaGasto / historicoGast.size()) + "Kcals!");
-						break;
-
-					case 4:
-						break;
-					default:
-						System.err.println("Opção inválida, entre com um valor válido");
-						break;
-					}
-
-				} while (op5 > 4 || op5 < 1);
+				} else {
+					System.err.println("Você ainda não possui nenhum dado armazenado em seu histórico!"
+							+ "\nInicie seu segundo dia para poder acionar essa opção!");
+				}
 				break;
 
 			case 6: // MÉTODO OPÇÕES
@@ -433,6 +454,7 @@ public class cadastro {
 							System.out.println("2 - Alterar meu peso");
 							System.out.println("3 - Alterar minha idade");
 							System.out.println("4 - Voltar");
+							System.out.print("=>:");
 							op6 = leia.nextInt();
 							continueLoop = false;
 

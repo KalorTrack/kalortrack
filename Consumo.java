@@ -28,13 +28,14 @@ public class Consumo {
 				continueLoop = true;
 				try {
 
-					System.out.println("\n\t\tESCOLHA SEU ALIMENTO");
+					System.out.println("\n\tESCOLHA SEU ALIMENTO");
 					System.out.println("\n1-Arroz");
 					System.out.println("2-Feijão");
 					System.out.println("3-Frango");
 					System.out.println("4-Macarronada");
 					System.out.println("5-Pão");
 					System.out.println("6-Volta");
+					System.out.print("=>:");
 
 					opcAli = leia.nextInt();
 					continueLoop = false;
@@ -47,37 +48,92 @@ public class Consumo {
 
 			switch (opcAli) {
 			case 1:
-				kcalAli = 111;
-				System.out.println("\nQuantas escumadeiras de arroz você comeu?");
-				unidade = leia.nextInt();
+				do {
+					continueLoop = true;
+					try {
+
+						kcalAli = 111;
+						System.out.println("\nQuantas escumadeiras de arroz você comeu?");
+						unidade = leia.nextInt();
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
 				kcalConsumoDia += kcalAli * unidade;
 				break;
 
 			case 2:
-				kcalAli = 99;
-				System.out.println("\nQuantas conchas de feijão você comeu?");
-				unidade = leia.nextInt();
+				do {
+					continueLoop = true;
+					try {
+
+						kcalAli = 99;
+						System.out.println("\nQuantas conchas de feijão você comeu?");
+						unidade = leia.nextInt();
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
 				kcalConsumoDia += kcalAli * unidade;
 				break;
 
 			case 3:
-				kcalAli = 165;
-				System.out.println("\nQuantos filés de frango você comeu?");
-				unidade = leia.nextInt();
+				do {
+					continueLoop = true;
+					try {
+
+						kcalAli = 165;
+						System.out.println("\nQuantos filés de frango você comeu?");
+						unidade = leia.nextInt();
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
 				kcalConsumoDia += kcalAli * unidade;
 				break;
 
 			case 4:
-				kcalAli = 126;
-				System.out.println("\nQuantas escumadeiras de macarronada você comeu?");
-				unidade = leia.nextInt();
+				do {
+					continueLoop = true;
+					try {
+
+						kcalAli = 126;
+						System.out.println("\nQuantas escumadeiras de macarronada você comeu?");
+						unidade = leia.nextInt();
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
 				kcalConsumoDia += kcalAli * unidade;
 				break;
 
 			case 5:
-				kcalAli = 149;
-				System.out.println("\nQuantos pães você comeu?");
-				unidade = leia.nextInt();
+				do {
+					continueLoop = true;
+					try {
+
+						kcalAli = 149;
+						System.out.println("\nQuantos pães você comeu?");
+						unidade = leia.nextInt();
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
 				kcalConsumoDia += kcalAli * unidade;
 				break;
 

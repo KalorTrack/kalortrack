@@ -8,12 +8,13 @@ public class KalorTrack {
 
 		Scanner leia = new Scanner(System.in);
 
-		cadastro cad = new cadastro(null, null, 0, 0, 0, 0);
+		cadastro cad = new cadastro(null, null, 0, 0, 0, 0, 0, 0);
 
 		int ligado = 1;
 
 		do {
-			//texto informativo sobre o app
+			System.out.println("||||||BEM VINDE AO KALORTRACK||||||");
+			System.out.println("|||||||||||||||||||||||||||||||||||");
 			cad.inicioCadastro();
 
 			cad.appSelect();

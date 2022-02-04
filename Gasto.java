@@ -24,13 +24,14 @@ public class Gasto {
 			continueLoop = true;
 			try {
 
-				System.out.println("\n\t\tESCOLHA SEU EXERCÍCIO");
+				System.out.println("\n\tESCOLHA SEU EXERCÍCIO");
 				System.out.println("\n1-Caminhada");
 				System.out.println("2-Corrida");
 				System.out.println("3-Bicicleta");
 				System.out.println("4-Musculação");
 				System.out.println("5-Alongamento");
 				System.out.println("6-Volta");
+				System.out.print("=>:");
 
 				opcExerc = leia.nextInt();
 				continueLoop = false;
@@ -44,44 +45,103 @@ public class Gasto {
 		do {
 			switch (opcExerc) {
 			case 1:
-				System.out.println("\nPor quantos minutos você praticou esse exercício?");
-				tempo = leia.nextInt();
-				kcalExerc = (3.3 * peso * tempo)/60;
-				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
+				do {
+					continueLoop = true;
+					try {
+
+						System.out.println("\nPor quantos minutos você praticou esse exercício?");
+						tempo = leia.nextInt();
+						kcalExerc = (3.3 * peso * tempo) / 60;
+						kcalGastoDia += kcalExerc;
+						System.out.printf("Você gastou %.2f Kcal! Continue assim!%n", kcalExerc);
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
+
 				break;
 
 			case 2:
-				System.out.println("\nPor quantos minutos você praticou esse exercício?");
-				tempo = leia.nextInt();
-				kcalExerc = (8 * peso * tempo)/60;
-				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
+				do {
+					continueLoop = true;
+					try {
+
+						System.out.println("\nPor quantos minutos você praticou esse exercício?");
+						tempo = leia.nextInt();
+						kcalExerc = (8 * peso * tempo) / 60;
+						kcalGastoDia += kcalExerc;
+						System.out.printf("Você gastou %.2f Kcal! Continue assim!%n", kcalExerc);
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
+
 				break;
 
 			case 3:
-				System.out.println("\nPor quantos minutos você praticou esse exercício?");
-				tempo = leia.nextInt();
-				kcalExerc = (8 * peso * tempo)/60;
-				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
+				do {
+					continueLoop = true;
+					try {
+
+						System.out.println("\nPor quantos minutos você praticou esse exercício?");
+						tempo = leia.nextInt();
+						kcalExerc = (8 * peso * tempo) / 60;
+						kcalGastoDia += kcalExerc;
+						System.out.printf("Você gastou %.2f Kcal! Continue assim!%n", kcalExerc);
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
+
 				break;
 
 			case 4:
-				System.out.println("\nPor quantos minutos você praticou esse exercício?");
-				tempo = leia.nextInt();
-				kcalExerc = (5.5 * peso * tempo)/60;
-				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
+				do {
+					continueLoop = true;
+					try {
+
+						System.out.println("\nPor quantos minutos você praticou esse exercício?");
+						tempo = leia.nextInt();
+						kcalExerc = (5.5 * peso * tempo) / 60;
+						kcalGastoDia += kcalExerc;
+						System.out.printf("Você gastou %.2f Kcal! Continue assim!%n", kcalExerc);
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
+
 				break;
 
 			case 5:
-				System.out.println("\nPor quantos minutos você praticou esse exercício?");
-				tempo = leia.nextInt();
-				kcalExerc = (2.5 * peso * tempo)/60;
-				kcalGastoDia += kcalExerc;
-				;
-				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
+				do {
+					continueLoop = true;
+					try {
+
+						System.out.println("\nPor quantos minutos você praticou esse exercício?");
+						tempo = leia.nextInt();
+						kcalExerc = (2.5 * peso * tempo) / 60;
+						kcalGastoDia += kcalExerc;
+						System.out.printf("Você gastou %.2f Kcal! Continue assim!%n", kcalExerc);
+						continueLoop = false;
+
+					} catch (InputMismatchException ex) {
+						System.err.println("Opção inválida, entre com um valor válido");
+						leia.nextLine();
+					}
+				} while (continueLoop);
+
 				break;
 
 			case 6:
