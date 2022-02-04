@@ -15,9 +15,10 @@ public class cadastro {
 
 	private String nome, sexo;
 	private int idade, op = 0, altura;
-	private double peso, imc = 0, tmb = 0;
+	private double imc = 0, tmb = 0;
 	private List<Double> historicoCons = new ArrayList<Double>();
 	private List<Double> historicoGast = new ArrayList<Double>();
+	protected double peso;
 
 	public cadastro(String nome, String sexo, int idade, int op, int altura, double peso) {
 
@@ -299,7 +300,7 @@ public class cadastro {
 
 			case 3:
 
-				gasto.listaExercícios();
+				gasto.listaExercícios(peso);
 
 				break;
 

@@ -19,7 +19,7 @@ public class Gasto {
 	boolean continueLoop = true;
 
 	// método simples
-	public void listaExercícios() {
+	public void listaExercícios(double peso) {
 		do {
 			continueLoop = true;
 			try {
@@ -46,42 +46,42 @@ public class Gasto {
 			case 1:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 3.3 * /* getPeso() */tempo;
+				kcalExerc = 3.3 * peso/tempo;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
 				break;
 
 			case 2:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 8 * /* getPeso() */tempo;
+				kcalExerc = 8 * peso/tempo;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
 				break;
 
 			case 3:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 8 * /* getPeso() */tempo;
+				kcalExerc = 8 * peso/tempo;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
 				break;
 
 			case 4:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 5.5 * /* getPeso() */tempo;
+				kcalExerc = 5.5 * peso/tempo;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
 				break;
 
 			case 5:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 2.5 * /* getPeso() */tempo;
+				kcalExerc = 2.5 * peso/tempo;
 				kcalGastoDia += kcalExerc;
 				;
-				System.out.println("Você gastou" + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
 				break;
 
 			case 6:
