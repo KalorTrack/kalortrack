@@ -156,8 +156,6 @@ public class cadastro {
 
 			case 1: // CADASTRO/NOVOS DADOS
 
-				historicoCons.clear();
-				historicoGast.clear();
 				System.out.println("Olá! Insira seus dados abaixo.");
 				System.out.println("\nNome:");
 				nome = leia.next();
@@ -230,8 +228,16 @@ public class cadastro {
 					tmb = 655.1 + (9.563 * peso) + (1.850 * altura) - (4.676 * idade);
 					tmb *= 1.20;
 				}
+				historicoCons.clear();
+				historicoGast.clear();
+				break;
 
 			case 2:
+				
+				if(peso < 1 || altura < 1 || !sexo.equals("M")|| !sexo.equals("F")) {
+					System.err.println("Cadastro não contém as informações necessárias, favor refazê-lo!");
+					opLiga = 3;
+				}
 				break;
 			default:
 				System.err.println("Opção inválida, entre com um valor válido");
