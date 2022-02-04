@@ -355,19 +355,19 @@ public class cadastro {
 							somaHisCons += historicoCons.get(i);
 						}
 
-						for (int i = 0; i < historicoCons.size(); i++) {
+						for (int i = 0; i < historicoGast.size(); i++) {
 
-							somaHisGast += historicoCons.get(i);
+							somaHisGast += historicoGast.get(i);
 						}
 
 						double mediaHis = (somaHisCons - somaHisGast) / historicoCons.size();
 
 						System.out.print("Nos últimos " + historicoCons.size() + " você ficou em ");
 
-						if (mediaHis + 75 > 0) {
+						if (mediaHis > 75) {
 							System.out.print("um superávit em média de " + mediaHis + "Kcals por dia!"
 									+ "\nIsso indica um ganho de peso!");
-						} else if (mediaHis - 75 < 0) {
+						} else if (mediaHis < 75) {
 							System.out.print("um déficit em média de " + (mediaHis * -1) + "Kcals por dia!"
 									+ "\nIsso indica uma perda de peso!");
 						} else {

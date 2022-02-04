@@ -46,42 +46,42 @@ public class Gasto {
 			case 1:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 3.3 * peso/tempo;
+				kcalExerc = (3.3 * peso * tempo)/60;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
 				break;
 
 			case 2:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 8 * peso/tempo;
+				kcalExerc = (8 * peso * tempo)/60;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
 				break;
 
 			case 3:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 8 * peso/tempo;
+				kcalExerc = (8 * peso * tempo)/60;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
 				break;
 
 			case 4:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 5.5 * peso/tempo;
+				kcalExerc = (5.5 * peso * tempo)/60;
 				kcalGastoDia += kcalExerc;
-				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
 				break;
 
 			case 5:
 				System.out.println("\nPor quantos minutos você praticou esse exercício?");
 				tempo = leia.nextInt();
-				kcalExerc = 2.5 * peso/tempo;
+				kcalExerc = (2.5 * peso * tempo)/60;
 				kcalGastoDia += kcalExerc;
 				;
-				System.out.println("Você gastou " + kcalGastoDia + " Kcal! Continue assim!");
+				System.out.println("Você gastou " + kcalExerc + " Kcal! Continue assim!");
 				break;
 
 			case 6:

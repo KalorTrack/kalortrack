@@ -13,7 +13,7 @@ public class KalorTrack {
 		int ligado = 1;
 
 		do {
-
+			//texto informativo sobre o app
 			cad.inicioCadastro();
 
 			cad.appSelect();
